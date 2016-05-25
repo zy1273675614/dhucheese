@@ -1,0 +1,25 @@
+body{
+	background-image:url(../images/background.jpg);
+}
+.vposi8{
+	margin-top:8px;
+}
+.vposi10{
+	margin-top:10%;
+}
+.vposi40{
+	margin-top:40%;
+}
+.hposi10{
+	margin-left:10px;
+	margin-right:10px;
+}
+.hposi20{
+	margin-left:10px;
+	margin-right:10px;
+}
+.topbar{
+	background-color:#F96;
+	height:45px;
+	text-align:center;  
+}

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"  
+    "http://struts.apache.org/dtds/struts-2.0.dtd">  
+  
+<struts>  
+  
+    <include file="struts-default.xml" />  
+    <!-- struts的action必须放在指定的包空间下定义 -->
+    <package name="cheese" extends="json-default">  
+    
+    	<!-- 定义一个拦截器 -->
+    	<interceptors>
+    		<interceptor name="authority" 
+    			class="com.cheese.ssh.interceptor.LoginInterceptor">
+    		</interceptor>
+    		<interceptor-stack name="mydefault">
+    			<interceptor-ref name="defaultStack"></interceptor-ref>
+    			<interceptor-ref name="authority"></interceptor-ref>
+    		</interceptor-stack>
+    	</interceptors>
+    	
+    	<!-- 定义全局result -->
+    	<global-results>
+    		<result name="login">login.jsp</result>
+    	</global-results>
+    	
+    	<!-- 这里的class对应applicationContext.xml中bean的id -->
+        <action name="register" class="regAction">  
+        	<!-- 未通过register-validation.xml的检验  -->
+            <result name="input">/register.html</result> 
+            <result name="success">/Success.jsp</result>  
+            <result name="error">/Fail.jsp</result>  
+        </action>  
+        
+        <action name="login" method="login" class="loginAction">        
+            <result name="input">/login.html</result> 
+            <result name="success">/user.jsp</result>  
+            <result name="error">/Fail.jsp</result>  
+        	<!-- <result type="json" name="success"></result> -->	
+        </action>
+        
+        <action name="showUser" method="showUser" class="loginAction">  
+            <result name="success">/user.jsp</result>  
+            <!-- 使用此拦截器 -->
+            <interceptor-ref name="mydefault"></interceptor-ref>
+        </action>
+        
+        <action name="logout" method="logout" class="loginAction">  
+            <result name="success">/index.html</result>  
+            
+        </action>
+        
+        <action name="findAllTask" method="findAllTask" class="taskAction">
+        	<result type="json">
+				<param name="root">
+					result
+				</param>
+			</result>		
+        </action>
+    </package>  
+  
+</struts>  
