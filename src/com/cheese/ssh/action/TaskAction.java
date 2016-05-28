@@ -19,11 +19,21 @@ public class TaskAction extends ActionSupport{
 	private ITaskManagerService taskManager;
 	//JSON结果集
 	private JSONArray result;
+	//任务
+	private Task task;
+	//任务ID
+	private Integer id;
 	
 	/*查询所有的任务*/
 	public String findAllTask(){
 		taskList = taskManager.findAllTask();
 		result = JSONArray.fromObject(taskList);
+		return SUCCESS;
+	}
+	
+	/*查询某一个任务的详细情况*/
+	public String taskView(){
+		task = taskManager.findTask(id);
 		return SUCCESS;
 	}
 	
@@ -53,7 +63,20 @@ public class TaskAction extends ActionSupport{
 		this.result = result;
 	}
 
-	
-	
+	public Task getTask() {
+		return task;
+	}
+
+	public void setTask(Task task) {
+		this.task = task;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 }

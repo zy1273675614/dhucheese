@@ -5,10 +5,12 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import com.cheese.ssh.beans.Task;
+import com.cheese.ssh.beans.User;
 import com.cheese.ssh.dao.ITaskDao;
 
 public class TaskDao implements ITaskDao{
@@ -35,8 +37,25 @@ public class TaskDao implements ITaskDao{
 		}
 		return groupList;
 	}
-	
 
+	
+	@Override
+	public Task findTaskById(Integer id) {
+		Session session = getSession();
+		session.getTransaction().begin();
+		Query query = session.createQuery(
+				"FROM Task WHERE id = :tId");
+		query.setInteger("tId", id);		
+		@SuppressWarnings("unchecked")
+		Iterator<Task> it = query.list().iterator();
+		session.getTransaction().commit();
+		Task task = new Task();
+		if (it.hasNext()) {
+			task = (Task)it.next();			
+		}
+		return task;
+	}
+	
 	/* getter and setter */
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;

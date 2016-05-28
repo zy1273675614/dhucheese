@@ -1,5 +1,6 @@
 <html>
 <head>
+<%@ page language="java" pageEncoding="UTF-8"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="author" content="m.178hui.com" />
 <meta name="applicable-device" content="mobile" />
@@ -58,7 +59,7 @@ $(document).ready(function(){
   <div class="view w">
   	<div class="bl_view_img"><img src="http://baoliao.178hui.com/upload/2015/0710/12332059693.jpg" /></div>
     <div class="bl_view_title"><span class="bl_type">白菜</span><span class="bl_type" style="background-color:#53bf1e;">活动</span><span class="bl_type" style="background-color:#00bb9c;">优质</span>韩国现代（HYUNDAI) BD-YS2003 多功能养生壶 煎药壶2.0L </div>
-    <div class="bl_view_note">手机端：99元包邮</div>
+    <div class="bl_view_note">${task.taskName}</div>
     <div class="bl_view_tag">
    		<div class="bl_view_price">￥99.00</div>
         <div class="bl_view_oprice">￥138.00</div>        

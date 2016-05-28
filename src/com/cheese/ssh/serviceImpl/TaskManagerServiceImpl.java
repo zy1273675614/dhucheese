@@ -23,6 +23,11 @@ public class TaskManagerServiceImpl implements ITaskManagerService{
 	public void setTaskDao(ITaskDao taskDao) {
 		this.taskDao = taskDao;
 	}
+
+	@Override
+	public Task findTask(Integer id) {
+		return taskDao.findTaskById(id);
+	}
 	
 	
 

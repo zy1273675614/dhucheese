@@ -1,5 +1,5 @@
 package com.cheese.ssh.beans;
-// Generated 2016-4-14 22:03:23 by Hibernate Tools 4.3.1.Final
+// Generated 2016-5-27 9:08:00 by Hibernate Tools 4.3.1.Final
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -18,10 +18,6 @@ import javax.persistence.TemporalType;
 @Table(name = "task", catalog = "dhucheese")
 public class Task implements java.io.Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String taskName;
 	private Integer type;
@@ -32,12 +28,13 @@ public class Task implements java.io.Serializable {
 	private Integer author;
 	private String image;
 	private Integer status;
+	private String authorName;
 
 	public Task() {
 	}
 
 	public Task(String taskName, Integer type, String description, Integer price, Date deadline, Date rel,
-			Integer author, String image, Integer status) {
+			Integer author, String image, Integer status, String authorName) {
 		this.taskName = taskName;
 		this.type = type;
 		this.description = description;
@@ -47,6 +44,7 @@ public class Task implements java.io.Serializable {
 		this.author = author;
 		this.image = image;
 		this.status = status;
+		this.authorName = authorName;
 	}
 
 	@Id
@@ -142,6 +140,15 @@ public class Task implements java.io.Serializable {
 
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+
+	@Column(name = "authorName")
+	public String getAuthorName() {
+		return this.authorName;
+	}
+
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
 	}
 
 }

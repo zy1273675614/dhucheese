@@ -38,16 +38,16 @@ $(window).load(function() {
 		 if(item.type == 2) type="实物类";
 		 if(item.type == 3) type="教育类";
 		 tbody.append(
-				 "<a href=\"baoliao_view.html\">" +
+				 "<a href=\"taskView.action?id=1\">" +
 		            "<div class=\"baoliao_content\">" +
 		                "<div class=\"bl_img\">" +
 		           			 "<img src=\"http://baoliao.178hui.com/upload/2015/0710/12332059693.jpg\" />" +
 		                "</div>" +
 		         "<div class=\"bl_right\">" +
-				 "<div class=\"bl_title\">" +
+				 "<div class=\"bl_title\">" +"任务名："+
 					 item.taskName + 
 				 "</div>" +
-                 "<div class=\"bl_note\">" +
+                 "<div class=\"bl_note\">" +"任务类别： "+
                  	 type + 
                  "</div>" +                 
                  "<div class=\"bl_tag\">" +
@@ -57,12 +57,12 @@ $(window).load(function() {
                      "<div class=\"bl_oprice\">" +
                      	"￥138.00" +
                      "</div>" +
-                     "<div class=\"bl_time\">" +
-                      
+                     "<div class=\"bl_time\">" + "发布时间："+
+                      (item.rel.year+1900) +"."+(item.rel.month+1)+"."+item.rel.date+
                      "</div>" +
-                     "<div class=\"bl_mall\">" +
-                     item.author +
-                     "</div>" +
+                     "<div class=\"bl_mall\">" +"发布人： "+
+                     item.authorName +
+                     "</div>" +                    
                  "</div>" +		
                  "</div>" +
                  "</div>" +
