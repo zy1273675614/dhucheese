@@ -65,7 +65,7 @@ $(document).ready(function(){
         <div class="bl_view_oprice">￥138.00</div>        
         <div class="bl_view_mall">商城：京东商城</div>
     </div>
-    <div class="bl_view_tag">
+    <div class="bl_view_tag">  
     	<div class="bl_view_user">爆料者：xye1**</div>
         <div class="bl_view_time">人气：360次浏览</div>
     </div>
