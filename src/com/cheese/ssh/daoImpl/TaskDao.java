@@ -56,6 +56,7 @@ public class TaskDao implements ITaskDao{
 		return task;
 	}
 	
+	
 	/* getter and setter */
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;

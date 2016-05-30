@@ -10,5 +10,4 @@ public interface ITaskDao {
 	List<Task> findAllTask();
 
 	Task findTaskById(Integer id);
-
 }

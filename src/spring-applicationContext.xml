@@ -68,6 +68,18 @@
     	</property>
     </bean>
     
+    <!-- 用户表的DAO和Service -->
+    <bean id="orderDao" class="com.cheese.ssh.daoImpl.OrderDao">
+    	<property name="sessionFactory">
+    		<ref bean="sessionFactory"/>
+    	</property>
+    </bean>
+    <bean id="orderManager" class="com.cheese.ssh.serviceImpl.OrderManagerServiceImpl">
+    	<property name="orderDao">
+    		<ref bean="orderDao"/>
+    	</property>
+    </bean>
+    
     <!-- 用户注册的Action -->  
     <bean id="regAction" class="com.cheese.ssh.action.RegisterAction">  
         <property name="userManager">  
@@ -79,6 +91,13 @@
     <bean id="loginAction" class="com.cheese.ssh.action.LoginAction">
     	<property name="userManager">
     		<ref bean="userManager"/>
+    	</property>
+    </bean>
+    
+    <!-- 订单的Action -->
+    <bean id="orderAction" class="com.cheese.ssh.action.OrderAction">
+    	<property name="orderManager">
+    		<ref bean="orderManager"/>
     	</property>
     </bean>
   

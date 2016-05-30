@@ -23,6 +23,10 @@ public class TaskAction extends ActionSupport{
 	private Task task;
 	//任务ID
 	private Integer id;
+	//操作结果flag
+	//success: 0
+	//fail   : 1
+	private Integer flag; 
 	
 	/*查询所有的任务*/
 	public String findAllTask(){
@@ -36,6 +40,7 @@ public class TaskAction extends ActionSupport{
 		task = taskManager.findTask(id);
 		return SUCCESS;
 	}
+	
 	
 	/* getter and setter functions*/	
 
@@ -78,5 +83,15 @@ public class TaskAction extends ActionSupport{
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
+	public Integer getFlag() {
+		return flag;
+	}
+
+	public void setFlag(Integer flag) {
+		this.flag = flag;
+	}
+	
+	
 
 }

@@ -49,5 +49,10 @@
             classpath:spring-*.xml
         </param-value>
     </context-param>
-
+	<jsp-config>
+		<taglib>
+			<taglib-uri>struts2</taglib-uri>
+			<taglib-location>/WEB-INF/struts-tags.tld</taglib-location>
+		</taglib>
+	</jsp-config>
 </web-app>

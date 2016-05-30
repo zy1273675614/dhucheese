@@ -38,7 +38,7 @@ $(window).load(function() {
 		 if(item.type == 2) type="实物类";
 		 if(item.type == 3) type="教育类";
 		 tbody.append(
-				 "<a href=\"taskView.action?id=1\">" +
+				 "<a href=\"taskView.action?id="+item.id+"\">" +
 		            "<div class=\"baoliao_content\">" +
 		                "<div class=\"bl_img\">" +
 		           			 "<img src=\"http://baoliao.178hui.com/upload/2015/0710/12332059693.jpg\" />" +

@@ -9,4 +9,5 @@ public interface ITaskManagerService {
 	List<Task> findAllTask();
 
 	Task findTask(Integer id);
+
 }

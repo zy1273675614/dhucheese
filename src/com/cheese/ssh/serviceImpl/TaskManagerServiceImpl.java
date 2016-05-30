@@ -28,7 +28,6 @@ public class TaskManagerServiceImpl implements ITaskManagerService{
 	public Task findTask(Integer id) {
 		return taskDao.findTaskById(id);
 	}
-	
-	
+
 
 }

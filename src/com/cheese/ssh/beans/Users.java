@@ -1,5 +1,5 @@
 package com.cheese.ssh.beans;
-// Generated 2016-5-27 9:08:00 by Hibernate Tools 4.3.1.Final
+// Generated 2016-5-29 18:51:25 by Hibernate Tools 4.3.1.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

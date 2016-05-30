@@ -1,6 +1,7 @@
 <html>
 <head>
 <%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="author" content="m.178hui.com" />
 <meta name="applicable-device" content="mobile" />
@@ -29,7 +30,18 @@ $(document).ready(function(){
 		$(".shaixuan_box").animate({right:'-100%'});
 		$(".shaixuan_box").hide(5);
 		$("html,body").css("overflow","");
-	});    
+	});   
+	$(".go_buy").click(function(event){
+		alert("ok");
+		$.ajax({
+	         url:"receiveOrder",
+	         type:"post",
+	         datatype:"json",
+	         success:function(data){//ajax返回的数据
+	        	 alert("hello");
+	         }
+	    });	
+	});
 });
 </script>
 </head>
@@ -47,7 +59,7 @@ $(document).ready(function(){
   <header>
     <div class="header"> <a class="new-a-back" href="baoliao.jsp"> <span><img src="images/iconfont-fanhui.png"></span> </a>
       <h2>爆料详情</h2>
-      <div class="head_right" style="top:13px;"><a href="baoliao.jsp" style="color:#FFFFFF; font-size:14px;">返回列表</a></div>
+      <div class="head_right" style="top:13px;"><a href="baoliao.jsp" style="font-size:14px;">返回列表</a></div>
     </div>
   </header>
   <!--header 结束-->
@@ -58,25 +70,33 @@ $(document).ready(function(){
   </div>
   <div class="view w">
   	<div class="bl_view_img"><img src="http://baoliao.178hui.com/upload/2015/0710/12332059693.jpg" /></div>
-    <div class="bl_view_title"><span class="bl_type">白菜</span><span class="bl_type" style="background-color:#53bf1e;">活动</span><span class="bl_type" style="background-color:#00bb9c;">优质</span>韩国现代（HYUNDAI) BD-YS2003 多功能养生壶 煎药壶2.0L </div>
-    <div class="bl_view_note">${task.taskName}</div>
+    <s:if test="task.type == 1">
+     <div class="bl_view_title"><span class="bl_type">创意类</span>  ${task.taskName} </div>
+      </s:if>
+      <s:elseif test="task.type == 2">
+       <div class="bl_view_title"><span class="bl_type" style="background-color:#53bf1e;">实物类</span>${task.taskName} </div>
+      </s:elseif>
+       <s:elseif test="task.type== 3">
+       <div class="bl_view_title"><span class="bl_type" style="background-color:#00bb9c;">教学类</span>${task.taskName} </div>
+      </s:elseif>
+    <div class="bl_view_note">任务描述：${task.description}</div>
     <div class="bl_view_tag">
-   		<div class="bl_view_price">￥99.00</div>
-        <div class="bl_view_oprice">￥138.00</div>        
-        <div class="bl_view_mall">商城：京东商城</div>
+   		<div class="bl_view_price">￥${task.price}</div>
+        <!-- <div class="bl_view_oprice">￥138.00</div>  -->       
+        <!-- <div class="bl_view_mall">商城：京东商城</div> -->
     </div>
     <div class="bl_view_tag">  
-    	<div class="bl_view_user">爆料者：xye1**</div>
-        <div class="bl_view_time">人气：360次浏览</div>
+    	<div class="bl_view_time">发布人：${task.authorName }</div>
+        <!-- <div class="bl_view_time">人气：360次浏览</div> -->
     </div>
     <div class="bl_view_tag">
-    	<div class="bl_view_user">喜欢：2人喜欢</div>
-        <div class="bl_view_time">时间：2015-07-10 12:33:36</div>
+    	<!-- <div class="bl_view_user">喜欢：2人喜欢</div> -->
+        <div class="bl_view_time">时间：${task.rel}</div>
     </div>
-    <div class="go_buy"><a href="#">直达链接</a></div>
+    <div class="go_buy"><a href="javascript:void(0);">接受任务</a></div>
   </div>
   
-  <div class="bl_view_content w">
+ <%--  <div class="bl_view_content w">
   	<h1>推荐理由<span>优质爆料QQ群①：186666517</span></h1>
     <div class="bl_view_word">
     	 <p>
@@ -220,7 +240,7 @@ $(document).ready(function(){
             </li>
         </ul>
     </div>
-  </div>
+  </div> --%>
   
   <div class="m_user w">
   	<a href="login.html">登录</a>
