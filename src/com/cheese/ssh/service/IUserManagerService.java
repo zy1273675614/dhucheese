@@ -9,4 +9,6 @@ public interface IUserManagerService {
 	String checkLogin(User user);
 
 	String logout();
+
+	String changeuser(User user);
 }

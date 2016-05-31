@@ -38,6 +38,7 @@ $(document).ready(function(){
 	});
 });
 </script>
+
 </head>
 
 <body>
@@ -52,7 +53,7 @@ $(document).ready(function(){
   <!--header 开始-->
   <header>
     <div class="header"> <a class="new-a-back" href="javascript:history.back();"> <span><img src="images/iconfont-fanhui.png"></span> </a>
-      <h2>会员中心</h2>
+      <h2>我的任务</h2>
       <div class="header_right shaixuan"><a href="index.html"><img src="images/iconfont-shouye.png"></a></div>
     </div>
   </header>
@@ -67,69 +68,9 @@ $(document).ready(function(){
     </div>
     <div class="user_nav_list w">
     	<ul>
-    	 <li>
-            	<a href="userinfo.jsp">
-                	<div class="u_nav_icon anquan"></div>
-                    <div class="u_nav_name">我的账号</div>
-                    <div class="nt_icon"></div>
-         
-              </a>
-               </li>
-            <li>
-            	<a href="money.html">
-                	<div class="u_nav_icon money"></div>
-                    <div class="u_nav_name">我的钱包</div>
-                     <div class="nt_icon"></div>
-                    <div class="u_money"><i>0.00元</i></div>
-              </a>
-            </li>
-             <li>
-            	<a href="qiandao.html">
-                	<div class="u_nav_icon qiandao"></div>
-                    <div class="u_nav_name">我的积分</div>
-                    <div class="nt_icon"></div>
-                    <!-- <div class="u_money"><i>今天您未签到</i></div> -->
-              </a>
-            </li>
-            <li>
-            	<a href="order.html">
-                	<div class="u_nav_icon dingdan"></div>
-                    <div class="u_nav_name">我的作品</div>
-                    <div class="nt_icon"></div>
-                    <!-- <div class="u_money"><i>0笔</i></div> -->
-              </a>
-            </li>
-            <li>
-            	<a href="demands.jsp">
-                	<div class="u_nav_icon dingdan"></div>
-                    <div class="u_nav_name">我发布的任务</div>
-                    <div class="nt_icon"></div>
-                    <!-- <div class="u_money"><i>0笔</i></div> -->
-              </a>
-            </li>
-            <li>
-            	<a href="order.html">
-                	<div class="u_nav_icon dingdan"></div>
-                    <div class="u_nav_name">我的收藏</div>
-                    <div class="nt_icon"></div>
-                    <!-- <div class="u_money"><i>0笔</i></div> -->
-              </a>
-            </li>      
-             <li>
-            	<a href="fabu.jsp">
-                	<div class="u_nav_icon znx"></div>
-                    <div class="u_nav_name">发布任务</div>
-                    <div class="nt_icon"></div>
-              </a>
-            </li>
-            <li>
-            	<a href="user_info.html">
-                	<div class="u_nav_icon anquan"></div>
-                    <div class="u_nav_name">安全中心</div>
-                    <div class="nt_icon"></div>
-              </a>
-            </li>
-            
+            <li></li>
+            <li></li>
+            <li></li>
         </ul>
     </div>
   <div class="login_out w"><a href="javascript:void(0);"><span><img src="images/iconfont-tuichu.png"></span><i>安全退出</i></a></div>
