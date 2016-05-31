@@ -10,4 +10,8 @@ public interface ITaskManagerService {
 
 	Task findTask(Integer id);
 
+	boolean setTask(Task task);
+
+	List<Task> mytask();
+
 }

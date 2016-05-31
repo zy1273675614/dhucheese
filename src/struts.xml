@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>  
+﻿<?xml version="1.0" encoding="UTF-8" ?>  
 <!DOCTYPE struts PUBLIC  
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"  
     "http://struts.apache.org/dtds/struts-2.0.dtd">  
@@ -70,6 +70,29 @@
 				</param>
 			</result>		
         </action> 
+
+<action name="newtask" method="newtask" class="taskAction">        
+            <result name="input">/fabu.jsp</result> 
+            <result name="success">/user.jsp</result>  
+            <result name="error">/Fail.jsp</result>  
+        	<!-- <result type="json" name="success"></result> -->	
+        </action>
+        
+        <action name="change" method="change" class="loginAction">        
+            <result name="input">/changeusername.jsp</result> 
+            <result name="success">/userinfo.jsp</result>  
+            <result name="error">/Fail.jsp</result>  
+        	<!-- <result type="json" name="success"></result> -->	
+        </action>
+		
+		<action name="findtask" method="findtask" class="taskAction">        
+            <result type="json">
+				<param name="root">
+					result
+				</param>
+			</result>		
+        </action>
+		
     </package>  
   
 </struts>  

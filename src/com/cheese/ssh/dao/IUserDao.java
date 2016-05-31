@@ -15,4 +15,5 @@ public interface IUserDao {
 
 
 	User findUser(User user);  
+	User changeuser(User user); 
 }

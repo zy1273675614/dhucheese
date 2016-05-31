@@ -31,6 +31,15 @@ public class LoginAction extends ActionSupport{
 		return userManager.logout();
 	}
 
+	/**
+	 * 
+	 *修改个人信息
+	 */
+	/*public String change() throws Exception {
+		//System.out.println(user.getUsername());
+		return userManager.changeuser(user);
+	}*/
+
 	/* getter and setters*/
 	public User getUser() {
 		return user;

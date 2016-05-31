@@ -3,6 +3,7 @@ package com.cheese.ssh.daoImpl;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -14,6 +15,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.cheese.ssh.beans.User;
 import com.cheese.ssh.dao.IUserDao;
+import com.opensymphony.xwork2.ActionContext;
 
 public class UserDao implements IUserDao{
 	
@@ -95,6 +97,44 @@ public class UserDao implements IUserDao{
 		return null;
 	}
 
+	/*@Override
+	public User changeuser(User user) {
+		String a = user.getUsername();
+		System.out.println(555 + a);
+		Map<String,Object> sess = ActionContext.getContext().getSession();
+		Integer b=(Integer) sess.get("userid");
+		System.out.println(b);
+		String d = user.getRealname();
+		System.out.println(555 + d);
+		Session session = getSession();
+		session.getTransaction().begin();
+		Query q = session.createQuery(
+				"update user set user.username=:username,user.password=:password,user.realname=:realname,user.gender=:gender,"
+				+ "user.birthday=:birthday,user.phone=:phone,user.mail=:mail,user.school=:school,user.major=:major,"
+				+ "user.address=:address,user.hometown=:hometown,user.company=:company,user.imageaddr=:imageaddr "
+				+ "AND user.usertype=:usertype WHERE user.id=:id");
+		q.setInteger("id", user.getId());
+		q.setString("username", user.getUsername());
+		String c = user.getUsername();
+		System.out.println(555 + c);
+		q.setString("password", user.getPassword());
+		q.setString("realname", user.getRealname());
+		q.setInteger("gender", user.getGender());
+		q.setDate("birthday", user.getBirthday());
+		q.setString("phone", user.getPhone());
+		q.setString("mail", user.getMail());
+		q.setString("school", user.getSchool());
+		q.setString("major", user.getMajor());
+		q.setString("address", user.getAddress());
+		q.setString("hometown", user.getHometown());
+		q.setString("company", user.getCompany());
+		q.setString("imageaddr", user.getImageaddr());
+		q.setInteger("usertype", user.getUsertype());
+		q.executeUpdate();
+		return user;
+
+	}*/
+
 	/* getter and setter functions */
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
@@ -103,6 +143,12 @@ public class UserDao implements IUserDao{
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 		System.out.println("sessionFactory set succ");
+	}
+
+	@Override
+	public User changeuser(User user) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

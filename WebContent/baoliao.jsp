@@ -47,7 +47,7 @@ $(window).load(function() {
 				 "<div class=\"bl_title\">" +"任务名："+
 					 item.taskName + 
 				 "</div>" +
-                 "<div class=\"bl_note\">" +"任务类别： "+
+                 "<div class=\"bl_note\">" +"任务类别： "+ 
                  	 type + 
                  "</div>" +                 
                  "<div class=\"bl_tag\">" +
