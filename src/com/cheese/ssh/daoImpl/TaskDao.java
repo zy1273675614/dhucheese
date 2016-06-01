@@ -85,6 +85,7 @@ public class TaskDao implements ITaskDao{
 	}
 	
 	/*查看我发布的任务*/
+	@Override
 	public List<Task> findTask() {
 		//System.out.println("a");
 		Map<String,Object> sess = ActionContext.getContext().getSession();

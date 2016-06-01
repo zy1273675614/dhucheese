@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <html>
 <head>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" pageEncoding="UTF-8"/>
 <meta name="author" content="m.178hui.com" />
 <meta name="applicable-device" content="mobile" />
@@ -12,6 +13,7 @@
 <script src="js/jquery-1.8.3.min.js"></script>
 <script src="layer/layer.js"></script>
 <script src="js/jquerysession.js"></script>
+<link href="css/baoliao.css" rel="stylesheet" type="text/css">
 <script>
 $(window).load(function() {
 	$("#status").fadeOut();
@@ -22,14 +24,14 @@ $(window).load(function() {
 $(document).ready(function(){
 	$(".login_out").click(function(){
 		
-		 window.location.href = "user.jsp";
+		 window.location.href = "demands.jsp";
 	});
 });
 </script>
 <script type="text/javascript">
 $(document).ready(function(){
 		$.ajax({
-	         url:"findtask",
+	         url:"findorder",
 	         type:"post",
 	         dataType:"json",
 	         success:function(data){//ajax返回的数据
@@ -45,12 +47,6 @@ $(document).ready(function(){
 	     });
 		
 		function OutputData(tbody, item){
-			//int i==0;
-			//i++;
-			 var type;
-			 if(item.type == 1) type="创意类";
-			 if(item.type == 2) type="实物类";
-			 if(item.type == 3) type="教育类";
 			 var status;
 			 switch(item.status){
 			 case 1:status="正在进行中";break;
@@ -58,23 +54,23 @@ $(document).ready(function(){
 			 default:status="失效";break;
 			 }
 			 tbody.append(
-					 "<a href=\"detailtask.action?id="+item.id+"\">" + 
-			         "<div class=\"u_nav_name\">" + 
-						 item.taskName +
+					 "<a>" + 
+			         "<div class=\"bl_view_tag\">" + "作品简介:" +
+						 item.mesg +
 					 "</div>" +
-					 /*"任务类别： "+ 
-	                 	 type + "&nbsp;" + "&nbsp;" +              
-	                 "价格："+
-	                     "￥"+item.price + "&nbsp;" + "&nbsp;" +
-	                 "截止时间："+
-	                     (item.deadline.year+1900) +"."+(item.deadline.month+1)+"."+item.deadline.date+ "&nbsp;" + "&nbsp;" +
-	                 "发布时间："+
-	                 	 (item.rel.year+1900) +"."+(item.rel.month+1)+"."+item.rel.date+ "&nbsp;" + "&nbsp;" + */
-	                 "<div class=\"nt_icon\">" +
-		             "</div>" + 
-	                 "<div class=\"u_money\">" + 
-	                     status +
-	                 "</div>" +
+					 "<div class=\"bl_view_tag\">" + "作品内容:" +
+				    	item.attachment +
+				     "</div>" +
+					 "<div class=\"bl_view_tag\">" + 
+					 "<div class=\"bl_view_time\">" + "威客:" +
+				    	item.username +
+				     "</div>" +
+				     "</div>" +
+				     "<div class=\"bl_view_tag\">" + 
+				     "<div class=\"bl_view_time\">" + "上传时间:" +
+				     (item.recDate.year+1900) +"."+(item.recDate.month+1)+"."+item.recDate.date+
+				     "</div>" +
+				     "</div>" +
 			         "</a>"
 			 
 			 );
@@ -105,7 +101,7 @@ $(document).ready(function(){
   <!--header 开始-->
   <header>
     <div class="header"> <a class="new-a-back" href="javascript:history.back();"> <span><img src="images/iconfont-fanhui.png"></span> </a>
-      <h2>我发布的任务</h2>
+      <h2>任务详情</h2>
       <div class="header_right shaixuan">
       <a href="index.html">
       <img src="images/iconfont-shouye.png"></a></div>
@@ -113,21 +109,49 @@ $(document).ready(function(){
   </header>
   <!--header 结束-->
 
-	<div class="user_top w">
+<%-- 	<div class="user_top w">
     	<div class="user_logo"><div class="img"><img src="images/user_logo.jpg"></div></div>
         <div class="user_info">
         	<div class="user_name"><%=session.getAttribute("username")%></div>
             <div class="user_dengji">会员等级：黄金会员</div>
         </div>
+    </div> --%>
+    
+    
+    <div class="view w">
+  	<div class="bl_view_img"><img src="http://baoliao.178hui.com/upload/2015/0710/12332059693.jpg" /></div>
+    <s:if test="task.type == 1">
+     <div class="bl_view_title"><span class="bl_type">创意类</span>  ${task.taskName} </div>
+      </s:if>
+      <s:elseif test="task.type == 2">
+       <div class="bl_view_title"><span class="bl_type" style="background-color:#53bf1e;">实物类</span>${task.taskName} </div>
+      </s:elseif>
+       <s:elseif test="task.type== 3">
+       <div class="bl_view_title"><span class="bl_type" style="background-color:#00bb9c;">教学类</span>${task.taskName} </div>
+      </s:elseif>
+    <div class="bl_view_note">任务描述：${task.description}</div>
+    <div class="bl_view_tag">
+   		<div class="bl_view_price">￥${task.price}</div>
+        <!-- <div class="bl_view_oprice">￥138.00</div>  -->       
+        <!-- <div class="bl_view_mall">商城：京东商城</div> -->
     </div>
-    
-    
-    <div class="user_nav_list w" id="user_nav_list">
-    	<div class="u_nav_name">任务名</div>
-    	<div class="nt_icon2"></div>
-    	<div class="u_money">状态</div>
+    <div class="bl_view_tag">  
+    	<div class="bl_view_time">发布人：${task.authorName }</div>
+        <!-- <div class="bl_view_time">人气：360次浏览</div> -->
     </div>
-    
+    <div class="bl_view_tag">
+    	<!-- <div class="bl_view_user">喜欢：2人喜欢</div> -->
+        <div class="bl_view_time">发布时间：${task.rel}</div>
+    </div>
+    <div class="bl_view_tag">
+    	<!-- <div class="bl_view_user">喜欢：2人喜欢</div> -->
+        <div class="bl_view_time">截止时间：${task.deadline}</div>
+    </div>
+  </div>
+  <div class="user_nav_list w" id="user_nav_list">
+  
+  
+  </div>  
 
      <div class="login_out w"><a href="javascript:void(0);"><span><img src="images/iconfont-tuichu.png"></span><i>返回</i></a></div>
   <div class="footer w">

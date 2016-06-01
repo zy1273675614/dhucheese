@@ -66,10 +66,16 @@ public class TaskAction extends ActionSupport{
 	
 	/*我的任务*/
 	public String findtask(){
-		System.out.println("123");
+		//System.out.println("123");
 		taskList=taskManager.mytask();
-		System.out.println(taskList);
+		//System.out.println(taskList);
 		result = JSONArray.fromObject(taskList);
+		return SUCCESS;
+	}
+	
+	/*任务详情*/
+	public String detailtask(){
+		task = taskManager.findTask(id);
 		return SUCCESS;
 	}
 	
