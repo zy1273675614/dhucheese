@@ -93,6 +93,18 @@
 			</result>		
         </action>
 		
+	<action name="detailtask" method="detailtask" class="taskAction">        
+            <result name="success">/detailtask.jsp</result>  	
+        </action>
+        
+        <action name="findorder" method="findorder" class="orderAction">        
+            <result type="json">
+				<param name="root">
+					result
+				</param>
+			</result>	
+        </action>
+
     </package>  
   
 </struts>  

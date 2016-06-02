@@ -1,10 +1,14 @@
 package com.cheese.ssh.dao;
 
-import com.cheese.ssh.beans.Order;
+import java.util.List;
+
+import com.cheese.ssh.beans.Orders;
 import com.cheese.ssh.beans.Task;
 
 public interface IOrderDao {
 
-	String save(Order order);
+	String save(Orders order);
+
+	List<Orders> findorder();
 
 }

@@ -73,6 +73,12 @@ public class TaskAction extends ActionSupport{
 		return SUCCESS;
 	}
 	
+	/*任务详情*/
+	public String detailtask(){
+		task = taskManager.findTask(id);
+		return SUCCESS;
+	}
+	
 	/* getter and setter functions*/	
 
 	public ITaskManagerService getTaskManager() {

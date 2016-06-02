@@ -1,4 +1,4 @@
-package com.cheese.ssh.serviceImpl;
+﻿package com.cheese.ssh.serviceImpl;
 
 import java.util.List;
 import java.util.Map;
@@ -39,6 +39,8 @@ public class TaskManagerServiceImpl implements ITaskManagerService{
 
 	@Override
 	public Task findTask(Integer id) {
+		session = ActionContext.getContext().getSession();//获取session对象
+		session.put("taskid",id );
 		return taskDao.findTaskById(id);
 	}
 	
